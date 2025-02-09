@@ -8,16 +8,18 @@
         body {
             text-align: center;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            background: url('https://source.unsplash.com/1600x900/?red-roses,romantic') no-repeat center center fixed;
+            background-size: cover;
             color: white;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-shadow: 2px 2px 10px black;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             animation: glow 2s infinite alternate;
         }
         @keyframes glow {
@@ -25,21 +27,27 @@
             100% { text-shadow: 0 0 20px white; }
         }
         .countdown {
-            font-size: 1.5em;
-            margin: 20px 0;
-        }
-        .buttons {
+            font-size: 1.8em;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 10px;
             margin-top: 20px;
         }
+        .buttons {
+            margin-top: 30px;
+        }
         .btn {
-            padding: 10px 20px;
-            font-size: 18px;
+            padding: 12px 24px;
+            font-size: 20px;
+            font-weight: bold;
             border: none;
             cursor: pointer;
             transition: 0.3s;
+            border-radius: 8px;
         }
         .yes {
-            background-color: #4CAF50;
+            background-color: #ff4081;
             color: white;
         }
         .no {
@@ -51,12 +59,12 @@
 </head>
 <body>
 
-    <h1>Hey Baby, will you be my Valentine? ❤️</h1>
+    <h1>Hey Aisha Baby, will you be my Valentine? ❤️</h1>
     
     <div class="countdown" id="countdown">Loading...</div>
     
     <div class="buttons">
-        <button class="btn yes" onclick="alert('Yay! I love you! ❤️')">Yes</button>
+        <button class="btn yes" onclick="alert('Yay! I love you Sugar Baby! ❤️')">Yes</button>
         <button class="btn no" onmouseover="moveButton()">No</button>
     </div>
 
