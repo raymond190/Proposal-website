@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px white; }
+            100% { text-shadow: 0 0 20px white; }
+        }
+        .countdown {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no {
+            background-color: #ff4c4c;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hey Baby, will you be my Valentine? ❤️</h1>
+    
+    <div class="countdown" id="countdown">Loading...</div>
+    
+    <div class="buttons">
+        <button class="btn yes" onclick="alert('Yay! I love you! ❤️')">Yes</button>
+        <button class="btn no" onmouseover="moveButton()">No</button>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date('February 14, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.getElementById('countdown').innerHTML = "It's Valentine's Day! ❤️";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = 
+                `${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        function moveButton() {
+            const btn = document.querySelector('.no');
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            btn.style.left = `${x}px`;
+            btn.style.top = `${y}px`;
+        }
+    </script>
+
+</body>
+</html>
